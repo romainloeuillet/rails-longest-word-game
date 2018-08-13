@@ -9,7 +9,7 @@ class GamesController < ApplicationController
 
   def score
     attempt = params[:word].chars.map { |letter| params[:letters].include?(letter.upcase) }
-    if attempt.include?(true)
+    if !attempt.include?(false)
       if english_word?
         @score = "The word is valid according to the grid and is an English word"
       else
